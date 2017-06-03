@@ -6,3 +6,10 @@ C:\Users\Vamsi_Jammula\Downloads\implementing-restful-aspdotnet-web-api\2-restfu
 C:\Users\Vamsi_Jammula\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.dll
 C:\Users\Vamsi_Jammula\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.pdb
 C:\Users\Vamsi_Jammula\Downloads\implementing-restful-aspdotnet-web-api\2-restful-aspdotnet-m1-exercise-files\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.csprojResolveAssemblyReference.cache
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.dll.config
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\CountingKs.Data.pdb
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\EntityFramework.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\EntityFramework.xml
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.pdb

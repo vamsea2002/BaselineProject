@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using Newtonsoft.Json.Serialization;
+using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
-using Newtonsoft.Json.Serialization;
 
 namespace CountingKs
 {
@@ -9,12 +9,18 @@ namespace CountingKs
     {
         public static void Register(HttpConfiguration config)
         {
-            config.Routes.MapHttpRoute("Food",
-                                       "api/nutrition/foods/{foodid}",
-                                       new {controller = "Foods", foodid = RouteParameter.Optional});
-            config.Routes.MapHttpRoute("Measures",
-                                       "api/nutrition/foods/{foodid}/measures/{id}",
-                                       new {controller = "measures", id = RouteParameter.Optional});
+            config.Routes.MapHttpRoute(name: "Food",
+                                       routeTemplate: "api/nutrition/foods/{foodid}",
+                                       defaults: new {controller = "Foods", foodid = RouteParameter.Optional});
+            config.Routes.MapHttpRoute(name: "Measures",
+                                       routeTemplate: "api/nutrition/foods/{foodid}/measures/{id}",
+                                       defaults: new {controller = "measures", id = RouteParameter.Optional});
+            config.Routes.MapHttpRoute(name: "Diaries",
+                                       routeTemplate: "api/user/diaries/{diaryId}",
+                                       defaults: new { controller = "diaries", diaryId = RouteParameter.Optional });
+            config.Routes.MapHttpRoute(name: "DiaryEntries",
+                                       routeTemplate: "api/user/diaries/{diaryId}/entries/{id}",
+                                       defaults: new {controller = "diaryentries", id = RouteParameter.Optional});
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().FirstOrDefault();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
 

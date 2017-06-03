@@ -8,7 +8,7 @@ namespace CountingKs.Controllers
     {
         private ModelFactory _modelFactory;
 
-        public BaseApiController(ICountingKsRepository repository)
+        protected BaseApiController(ICountingKsRepository repository)
         {
             TheRepository = repository;
         }
@@ -20,7 +20,7 @@ namespace CountingKs.Controllers
             {
                 if(_modelFactory == null)
                 {
-                    _modelFactory = new ModelFactory(Request);
+                    _modelFactory = new ModelFactory(Request, TheRepository);
                 }
                 return _modelFactory;
             }

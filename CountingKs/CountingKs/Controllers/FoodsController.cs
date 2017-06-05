@@ -4,10 +4,12 @@ using System.Linq;
 using System.Web.Http.Routing;
 using CountingKs.Data;
 using CountingKs.Data.Entities;
+using CountingKs.Filters;
 using CountingKs.Models;
 
 namespace CountingKs.Controllers
 {
+    [CountingKsAuthorize(false)]
     public class FoodsController : BaseApiController
     {
         public FoodsController(ICountingKsRepository repository) : base(repository) { }

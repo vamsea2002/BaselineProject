@@ -45,7 +45,7 @@ namespace CountingKs.Controllers
         }
 
 
-        public HttpResponseMessage Post(DateTime dairyId, [FromBody] DiaryEntryModel model)
+        public HttpResponseMessage Post(DateTime diaryId, [FromBody] DiaryEntryModel model)
         {
 
             try
@@ -56,7 +56,7 @@ namespace CountingKs.Controllers
                     Request.CreateResponse(HttpStatusCode.BadRequest, "Could Not Read Diary Entry ");
                 }
 
-                var diary = TheRepository.GetDiary(_identityService.CurrentUser, dairyId);
+                var diary = TheRepository.GetDiary(_identityService.CurrentUser, diaryId);
 
                 if(diary == null)
                 {
@@ -120,12 +120,12 @@ namespace CountingKs.Controllers
             }
         }
         [HttpPatch][HttpPut]
-        public HttpResponseMessage Patch(DateTime dairyId, int id, [FromBody] DiaryEntryModel model)
+        public HttpResponseMessage Patch(DateTime diaryId, int id, [FromBody] DiaryEntryModel model)
         {
 
             try
             {
-                var entity = TheRepository.GetDiaryEntry(_identityService.CurrentUser, dairyId, id);
+                var entity = TheRepository.GetDiaryEntry(_identityService.CurrentUser, diaryId, id);
                 if(entity == null)
                 {
                     return Request.CreateResponse(HttpStatusCode.NotFound);

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Net.Http;
+using System.Security.AccessControl;
 using System.Web.Http.Routing;
 using CountingKs.Data;
 using CountingKs.Data.Entities;
@@ -87,6 +88,21 @@ namespace CountingKs.Models
             {
                 return null;
             }
+        }
+
+        public object CreateSummary(Diary diary)
+        {
+            return new DiarySummaryModel
+                   {
+                       DiaryDate = diary.CurrentDate,
+                       TotalCalories = Math.Round(diary.Entries.Sum(e => e.Measure.Calories * e.Quantity))
+                   };
+        }
+
+        public AuthTokenModel Create(AuthToken token)
+        {
+
+            return new AuthTokenModel {Expiration = token.Expiration, Token = token.Token};
         }
     }
 }

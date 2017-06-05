@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using CountingKs.Filters;
 
 namespace CountingKs.Controllers
 {
+    [CountingKsAuthorize]
     public class DiariesController : BaseApiController
     {
         private readonly ICountingKsIdentityService _identityService;
@@ -19,14 +21,14 @@ namespace CountingKs.Controllers
             _identityService = identIndentityService;
         }
 
-       
+
         public IEnumerable<DiaryModel> Get()
         {
             var userName = _identityService.CurrentUser;
             var results =
                     TheRepository.GetDiaries(userName)
                                  .OrderByDescending(d => d.CurrentDate)
-                                 .ToList()                                
+                                 .ToList()
                                  .Select(e => TheModelFactory.Create(e));
             return results;
         }
@@ -34,8 +36,8 @@ namespace CountingKs.Controllers
         public HttpResponseMessage Get(DateTime diaryId, int id)
         {
             var userName = _identityService.CurrentUser;
-            var result = TheRepository.GetDiaryEntry(userName,diaryId,id);
-            if(result == null)
+            var result = TheRepository.GetDiaryEntry(userName, diaryId, id);
+            if (result == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }

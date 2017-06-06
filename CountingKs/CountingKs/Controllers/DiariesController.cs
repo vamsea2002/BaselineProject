@@ -10,7 +10,7 @@ using CountingKs.Filters;
 
 namespace CountingKs.Controllers
 {
-    [CountingKsAuthorize]
+    [CountingKsAuthorize]   
     public class DiariesController : BaseApiController
     {
         private readonly ICountingKsIdentityService _identityService;

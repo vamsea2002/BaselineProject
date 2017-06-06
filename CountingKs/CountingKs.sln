@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountingKs", "CountingKs\CountingKs.csproj", "{731C8232-E347-46A2-92F9-8079F1569DB6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CountingKs.Data", "CountingKs.Data\CountingKs.Data.csproj", "{AF4DDE5F-8DF7-4D80-A3CD-88E1D0DBCB1D}"
@@ -10,6 +12,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{95ADB5
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D926F27F-00A7-48B3-B9C0-66B032893DFE}"
+	ProjectSection(SolutionItems) = preProject
+		TestUrls.txt = TestUrls.txt
 	EndProjectSection
 EndProject
 Global

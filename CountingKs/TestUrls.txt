@@ -1,0 +1,31 @@
+Get with Auth
+
+http://localhost:8901/api/nutrition/foods/?apikey=SSB3aWxsIG1ha2UgbXkgQVBJIHNlY3VyZQ==&token=CYFmTSrrl7sXNkqbm9+SzowiSXBaT2WGtkZ3jywk25k=
+
+_______________________________________________________________________
+To Generate Token
+
+url: http://localhost:8901/api/token/
+Method:	POST
+Header:	Content-type:application/json
+Body: 
+{
+"ApiKey":"SSB3aWxsIG1ha2UgbXkgQVBJIHNlY3VyZQ==",
+"Signature":"CPcY0x9TUjbZmf1Fgs4DH+9zU2nEKcZIrgs/cnPUJD0="
+} 
+note Signature is base64 encoded string 
+________________________________________________________________________
+
+____________________________________________________________________
+http://localhost:8901/api/nutrition/foods?apikey=SSB3aWxsIG1ha2UgbXkgQVBJIHNlY3VyZQ==&token=mvMydqj5QqzdzN+1tdjtkZdPCAj9SUA5z46MpXvCo9U=
+_________________________________________________________________________
+
+URL: http://localhost:8901/api/user/diaries/?apikey=SSB3aWxsIG1ha2UgbXkgQVBJIHNlY3VyZQ==&token=CYFmTSrrl7sXNkqbm9+SzowiSXBaT2WGtkZ3jywk25k=
+Method: GET
+Header: 
+User-Agent: Fiddler
+Host: localhost:8901
+content-Type: application/json
+Content-Length: 0
+Authorization: Basic c2hhd253aWxkZXJtdXRoOnBsdXJhbHNpZ2h0
+c2hhd253aWxkZXJtdXRoOnBsdXJhbHNpZ2h0 -> base64 encoded username:password of the user

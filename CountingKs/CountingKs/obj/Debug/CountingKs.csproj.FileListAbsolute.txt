@@ -140,6 +140,7 @@ C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Org.Mentalis.Security.Cryptography.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Mono.Math.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CountingKs.Data.pdb
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Newtonsoft.Json.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Ninject.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Ninject.Web.Common.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Ninject.Web.Mvc.xml
@@ -148,7 +149,6 @@ C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\System.Web.Http.OData.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\System.Web.Http.WebHost.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\EntityFramework.xml
-C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Newtonsoft.Json.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\System.Web.Helpers.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\System.Web.Mvc.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\System.Web.Razor.xml

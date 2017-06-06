@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web.Http;
+using CountingKs.Filters;
 using WebApiContrib.Formatting.Jsonp;
 
 namespace CountingKs
@@ -37,6 +38,12 @@ namespace CountingKs
             //support for jsonp
             var formatter = new JsonpMediaTypeFormatter(jsonFormatter,"cb");
             config.Formatters.Insert(0,formatter);
+
+            // Uncomment this to support only https for the application
+            config.Filters.Add(new RequireHttpsAttribute());
+
+
+
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.

@@ -13,4 +13,3 @@ C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\bin\Debug\EntityFramework.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.pdb
-C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs.Data\obj\Debug\CountingKs.Data.csprojResolveAssemblyReference.cache

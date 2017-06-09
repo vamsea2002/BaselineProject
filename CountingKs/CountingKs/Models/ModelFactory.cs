@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Security.AccessControl;
@@ -13,7 +14,7 @@ namespace CountingKs.Models
         private readonly UrlHelper _urlHelper;
         private ICountingKsRepository _repository;
 
-        public ModelFactory(HttpRequestMessage request,ICountingKsRepository repository)
+        public ModelFactory(HttpRequestMessage request, ICountingKsRepository repository)
         {
             _urlHelper = new UrlHelper(request);
             _repository = repository;
@@ -40,13 +41,53 @@ namespace CountingKs.Models
             };
         }
 
+        public MeasureV2Model Create2(Measure measure)
+        {
+            return new MeasureV2Model
+            {
+                Url = _urlHelper.Link("Measures", new { foodid = measure.Food.Id, id = measure.Id }),
+                Description = measure.Description,
+                Calories = Math.Round(measure.Calories),
+                Carbohydrates = measure.Carbohydrates,
+                Cholestrol = measure.Cholestrol,
+                Fiber = measure.Fiber,
+                Iron = measure.Iron,
+                Protein = measure.Protein,
+                SaturatedFat = measure.SaturatedFat,
+                Sodium = measure.Sodium,
+                Sugar = measure.Sugar,
+                TotalFat = measure.TotalFat
+            };
+        }
+
         public DiaryModel Create(Diary d)
         {
-            return new DiaryModel()
+            return new DiaryModel
             {
-                Url = _urlHelper.Link("Diaries", new { diaryid = d.CurrentDate.ToString("yyyy-MM-dd") }),
+
+                Links = new List<LinkModel>
+                        {
+                    CreateLink(_urlHelper.Link("Diaries", new {diaryid =
+                d.CurrentDate.ToString("yyyy-MM-dd") }),"self"),
+                     CreateLink(_urlHelper.Link("DiaryEntries", new {diaryid =
+                d.CurrentDate.ToString("yyyy-MM-dd") }),"POST")
+
+                        },
                 CurrentDate = d.CurrentDate,
                 Entries = d.Entries.Select(e => Create(e))
+            };
+        }
+
+        public LinkModel CreateLink(string href, string rel, string method = "GET", bool isTemplated = false)
+        {
+            return new LinkModel
+            {
+                Href = href,
+                Rel = rel,
+                IsTemplated = isTemplated,
+                Method = method
+
+
             };
         }
 
@@ -62,20 +103,19 @@ namespace CountingKs.Models
             };
         }
 
-        public DiaryEntry Parse(DiaryEntryModel model)
+        public DiaryEntry Parse(DiaryModel model)
         {
             try
             {
                 var entry = new DiaryEntry();
 
-                if (model.Quantity != default(double))
-                {
-                    entry.Quantity = model.Quantity;
-                }
+                var selfLink = model.Links.FirstOrDefault(l => l.Rel == "self");
 
-                if (!string.IsNullOrWhiteSpace(model.MeasureUrl))
+               
+
+                if (selfLink!=null&&string.IsNullOrWhiteSpace(selfLink.Href))
                 {
-                    var uri = new Uri(model.MeasureUrl);
+                    var uri = new Uri(selfLink.Href);
                     var measureId = int.Parse(uri.Segments.Last());
                     var measure = _repository.GetMeasure(measureId);
                     entry.Measure = measure;
@@ -93,16 +133,16 @@ namespace CountingKs.Models
         public object CreateSummary(Diary diary)
         {
             return new DiarySummaryModel
-                   {
-                       DiaryDate = diary.CurrentDate,
-                       TotalCalories = Math.Round(diary.Entries.Sum(e => e.Measure.Calories * e.Quantity))
-                   };
+            {
+                DiaryDate = diary.CurrentDate,
+                TotalCalories = Math.Round(diary.Entries.Sum(e => e.Measure.Calories * e.Quantity))
+            };
         }
 
         public AuthTokenModel Create(AuthToken token)
         {
 
-            return new AuthTokenModel {Expiration = token.Expiration, Token = token.Token};
+            return new AuthTokenModel { Expiration = token.Expiration, Token = token.Token };
         }
     }
 }

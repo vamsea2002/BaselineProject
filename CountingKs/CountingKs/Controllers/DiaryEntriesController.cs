@@ -45,7 +45,7 @@ namespace CountingKs.Controllers
         }
 
 
-        public HttpResponseMessage Post(DateTime diaryId, [FromBody] DiaryEntryModel model)
+        public HttpResponseMessage Post(DateTime diaryId, [FromBody] DiaryModel model)
         {
 
             try
@@ -120,7 +120,7 @@ namespace CountingKs.Controllers
             }
         }
         [HttpPatch][HttpPut]
-        public HttpResponseMessage Patch(DateTime diaryId, int id, [FromBody] DiaryEntryModel model)
+        public HttpResponseMessage Patch(DateTime diaryId, int id, [FromBody] DiaryModel model)
         {
 
             try

@@ -6,7 +6,19 @@ namespace CountingKs.Services
     {
         public string CurrentUser
         {
-            get { return Thread.CurrentPrincipal.Identity.Name; }
+
+
+
+            get
+            {
+#if DEBUG
+                return "shawnwildermuth";
+#else
+                    return Thread.CurrentPrincipal.Identity.Name;
+#endif
+            }
+
+
         }
     }
 }

@@ -1,4 +1,8 @@
-﻿using CountingKs.Data;
+﻿#if DEBUG
+#define DISABLE_SECURITY 
+#endif
+
+using CountingKs.Data;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -19,7 +23,7 @@ namespace CountingKs.Filters
     {
         private static bool _perUser;
 
-        
+#if !DISABLE_SECURITY
 
         public CountingKsAuthorizeAttribute(bool perUser = true)
         {
@@ -36,6 +40,9 @@ namespace CountingKs.Filters
 
         private bool ReadApiKeyAndTokenFromContext(HttpActionContext actionContext)
         {
+
+            
+
             const string APIKEYNAME = "apikey";
             const string TOKENNAME = "token";
 
@@ -129,5 +136,7 @@ namespace CountingKs.Filters
                                                    "Basic Scheme='CountingKs' location='http://localhost:8901/account/login'");
             }
         }
+
+#endif
     }
 }

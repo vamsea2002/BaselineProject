@@ -9,7 +9,7 @@ using CountingKs.Models;
 
 namespace CountingKs.Controllers
 {
-    [CountingKsAuthorize(false)]
+   // [CountingKsAuthorize(false)]
     public class FoodsController : BaseApiController
     {
         public FoodsController(ICountingKsRepository repository) : base(repository) { }
@@ -31,8 +31,15 @@ namespace CountingKs.Controllers
             var totalPages = Math.Ceiling((double)totalCount / PAGE_SIZE);
 
             var helper = new UrlHelper(Request);
-            var prevPageUrl = page>0?helper.Link("Food", new {page = page - 1}):"";
-            var nextPageUrl = page < totalPages-1? helper.Link("Food", new { page = page + 1 }):"";
+            var links = new List<LinkModel>();
+            if(page > 0)
+            {
+                links.Add(TheModelFactory.CreateLink(helper.Link("Food", new {page = page - 1}), "nextPage"));
+            }
+            if(page < totalPages - 1)
+            {
+                links.Add(TheModelFactory.CreateLink(helper.Link("Food", new { page = page + 1 }),"previousPage"));
+            }
             var result = baseQuery
                 .Skip(PAGE_SIZE * page)
                 .Take(PAGE_SIZE).ToList()
@@ -41,8 +48,7 @@ namespace CountingKs.Controllers
             {
                 TotalCount = totalCount,
                 TotalPages = totalPages,
-                PrevPageUrl=prevPageUrl,
-                NextPageUrl=nextPageUrl,
+                Links = links,
                 Results = result
             };
         }

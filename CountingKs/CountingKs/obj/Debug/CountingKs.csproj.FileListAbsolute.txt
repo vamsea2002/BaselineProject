@@ -102,6 +102,9 @@ C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CountingKs.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CountingKs.pdb
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Antlr3.Runtime.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Common.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Server.dll
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Server.EntityTagStore.SqlServer.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CountingKs.Data.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\DotNetOpenAuth.AspNet.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\DotNetOpenAuth.Core.dll
@@ -140,6 +143,9 @@ C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Org.Mentalis.Security.Cryptography.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Mono.Math.dll
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CountingKs.Data.pdb
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Common.xml
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Server.xml
+C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\CacheCow.Server.EntityTagStore.SqlServer.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Newtonsoft.Json.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Ninject.xml
 C:\Users\Vamsi_Jammula\Documents\Visual Studio 2015\Projects\Baseline\CountingKs\CountingKs\bin\Ninject.Web.Common.xml

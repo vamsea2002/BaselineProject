@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Dispatcher;
 using CacheCow.Server;
 using CacheCow.Server.EntityTagStore.SqlServer;
@@ -21,7 +22,7 @@ namespace CountingKs
     {
         public static void Register(HttpConfiguration config)
         {
-            
+           config.MapHttpAttributeRoutes(); 
 
             config.Routes.MapHttpRoute(name: "Food",
                                        routeTemplate: "api/nutrition/foods/{foodid}",
@@ -42,7 +43,9 @@ namespace CountingKs
             config.Routes.MapHttpRoute(name: "Token",
                                                    routeTemplate: "api/token",
                                                    defaults: new { controller = "token" });
-
+            config.Routes.MapHttpRoute(name: "Stats",
+                                                  routeTemplate: "api/stats",
+                                                  defaults: new { controller = "stats" });
 
             //config.Routes.MapHttpRoute(name: "Measures2",
             //                           routeTemplate: "api/v2/nutrition/foods/{foodid}/measures/{id}",
@@ -77,7 +80,8 @@ namespace CountingKs
             var cacheHandler = new CachingHandler(config, etagStore) {AddLastModifiedHeader = false};
 
             config.MessageHandlers.Add(cacheHandler);
-
+            var attr = new EnableCorsAttribute("*","*","GET");
+           config.EnableCors(attr);
         }
 
         private static void CreateMediaTypes(JsonMediaTypeFormatter jsonFormatter)

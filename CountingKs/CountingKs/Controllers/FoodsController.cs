@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Http;
 using System.Web.Http.Routing;
 using CountingKs.Data;
 using CountingKs.Data.Entities;
@@ -9,11 +10,14 @@ using CountingKs.Models;
 
 namespace CountingKs.Controllers
 {
-   // [CountingKsAuthorize(false)]
+    // [CountingKsAuthorize(false)]
+    [RoutePrefix("api/nutrition/foods")]
     public class FoodsController : BaseApiController
     {
         public FoodsController(ICountingKsRepository repository) : base(repository) { }
         private const int PAGE_SIZE = 10;
+
+        [Route("",Name="Foods")]
         public object Get(bool includeMeasures = true, int page = 0)
         {
             IQueryable<Food> query;
@@ -34,11 +38,11 @@ namespace CountingKs.Controllers
             var links = new List<LinkModel>();
             if(page > 0)
             {
-                links.Add(TheModelFactory.CreateLink(helper.Link("Food", new {page = page - 1}), "nextPage"));
+                links.Add(TheModelFactory.CreateLink(helper.Link("Foods", new {page = page - 1}), "nextPage"));
             }
             if(page < totalPages - 1)
             {
-                links.Add(TheModelFactory.CreateLink(helper.Link("Food", new { page = page + 1 }),"previousPage"));
+                links.Add(TheModelFactory.CreateLink(helper.Link("Foods", new { page = page + 1 }),"previousPage"));
             }
             var result = baseQuery
                 .Skip(PAGE_SIZE * page)
@@ -53,9 +57,11 @@ namespace CountingKs.Controllers
             };
         }
 
-        public FoodModel Get(int foodid)
+        [Route("{foodid}",Name="Foodid")]
+
+        public IHttpActionResult Get(int foodid)
         {
-            return TheModelFactory.Create(TheRepository.GetFood(foodid));
+            return Versioned(TheModelFactory.Create(TheRepository.GetFood(foodid)),"v2");
         }
     }
 }

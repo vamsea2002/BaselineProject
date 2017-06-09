@@ -20,16 +20,22 @@ namespace CountingKs.Services
 
         public override HttpControllerDescriptor SelectController(HttpRequestMessage request)
         {
+           
+
             var controllers = GetControllerMapping();
             var routeData = request.GetRouteData();
             var contollerName = (string)routeData.Values["controller"];
             HttpControllerDescriptor descriptor;
+            if(string.IsNullOrWhiteSpace(contollerName))
+            {
+                return base.SelectController(request);
+            }
             if (controllers.TryGetValue(contollerName, out descriptor))
             {
                 var version = GetVersionFromMediaType(request);
-                    //GetVersionFromAcceptHeaderVersion(request);
-                    //GetVersionFromHeader(request);
-                    //GetVersionFromQueryString(request);
+                //GetVersionFromAcceptHeaderVersion(request);
+                //GetVersionFromHeader(request);
+                //GetVersionFromQueryString(request);
                 var newName = string.Concat(contollerName, "V", version);
                 HttpControllerDescriptor versionDescriptor;
                 if (controllers.TryGetValue(newName, out versionDescriptor))
